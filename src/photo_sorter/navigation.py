@@ -21,6 +21,13 @@ class Navigation:
             return None
         return self._images[self._index]
 
+    def image_at(self, offset: int = 0) -> Path | None:
+        """Return image at current index + offset, or None if out of bounds."""
+        target = self._index + offset
+        if target < 0 or target >= len(self._images):
+            return None
+        return self._images[target]
+
     def count(self) -> int:
         return len(self._images)
 
